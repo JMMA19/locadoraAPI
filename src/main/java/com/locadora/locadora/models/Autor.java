@@ -21,7 +21,25 @@ public class Autor implements Serializable {
 	private static final long serialVersionUID = 1L;
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
- private int IdAutor;
+ private Long IdAutor;
  private String NomeAltor;
- private String Nascimento;
+ public Long getIdAutor() {
+	return IdAutor;
+}
+public void setIdAutor(Long idAutor) {
+	IdAutor = idAutor;
+}
+public String getNomeAltor() {
+	return NomeAltor;
+}
+public void setNomeAltor(String nomeAltor) {
+	NomeAltor = nomeAltor;
+}
+public String getNascimento() {
+	return Nascimento;
+}
+public void setNascimento(String nascimento) {
+	Nascimento = nascimento;
+}
+private String Nascimento;
 }

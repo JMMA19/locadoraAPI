@@ -23,8 +23,27 @@ public class Filme implements Serializable {
 	private static final long serialVersionUID = 1L;
  @Id
  @GeneratedValue(strategy = GenerationType.AUTO)
-private int IdFilme;
+private Long IdFilme;
+public Long getIdFilme() {
+	return IdFilme;
+}
+public void setIdFilme(Long idFilme) {
+	IdFilme = idFilme;
+}
 private String NomeFilme;
 private int AnoFilme;
+public int getAnoFilme() {
+	return AnoFilme;
+}
+public void setAnoFilme(int anoFilme) {
+	AnoFilme = anoFilme;
+}
+public String getNomeFilme() {
+	return NomeFilme;
+}
+public void setNomeFilme(String nomeFilme) {
+	NomeFilme = nomeFilme;
+}
+
 
 }
