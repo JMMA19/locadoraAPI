@@ -1,13 +1,14 @@
 package com.locadora.locadora.models;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,19 +20,23 @@ import lombok.Setter;
 @AllArgsConstructor
 @Table(name = "Filme_tb")
 public class Filme implements Serializable {
-
 	private static final long serialVersionUID = 1L;
+	
  @Id
  @GeneratedValue(strategy = GenerationType.AUTO)
-private Long IdFilme;
+ 	private Long IdFilme;
+ 
+ @OneToMany
+ 	private List<Autor> autor;
+ 	private String NomeFilme;
+ 	private int AnoFilme;
+ 	
 public Long getIdFilme() {
 	return IdFilme;
 }
 public void setIdFilme(Long idFilme) {
 	IdFilme = idFilme;
 }
-private String NomeFilme;
-private int AnoFilme;
 public int getAnoFilme() {
 	return AnoFilme;
 }
