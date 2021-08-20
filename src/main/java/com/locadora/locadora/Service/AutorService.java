@@ -1,19 +1,20 @@
-package com.locadora.locadora.Controlers;
+package com.locadora.locadora.Service;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import com.locadora.locadora.models.Autor;
 import com.locadora.locadora.repository.AutorRepository;
-
-@RestController
+@Service
 @RequestMapping(value = "/autorAPI")
-	public class AutorControler {
+public class AutorService {
+
 @Autowired
 AutorRepository AutorRepository;
 
@@ -21,13 +22,12 @@ AutorRepository AutorRepository;
 //Cadastro de autor / Atualiza caso passe a Id já cadastrada
 @PostMapping("/salvarautor")
 public Autor salvarAutor(@RequestBody Autor Autor) {
-	return AutorRepository.save(Autor);
-}
+		return AutorRepository.save(Autor);
+	}
 
-//listagem de Filmes Geral e por Id ///////////////////////
+	//listagem de Filmes Geral e por Id ///////////////////////
 @GetMapping("/Listar")
 public List<Autor> listarAutor(){
 return AutorRepository.findAll();
-}
-
+	}
 }

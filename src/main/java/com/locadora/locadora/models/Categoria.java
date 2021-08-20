@@ -23,7 +23,7 @@ public class Categoria implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	public int Id_Categoria;
+	public Long Id_Categoria;
 	public String Nome_categoria;
 	
 }

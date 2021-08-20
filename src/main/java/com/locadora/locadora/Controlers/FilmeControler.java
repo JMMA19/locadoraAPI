@@ -1,5 +1,6 @@
 package com.locadora.locadora.Controlers;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,37 +10,45 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.locadora.locadora.Service.AutorService;
+import com.locadora.locadora.Service.FilmeService;
+import com.locadora.locadora.models.Autor;
 import com.locadora.locadora.models.Filme;
-import com.locadora.locadora.repository.FilmeReposiory;
 
 @RestController
 @RequestMapping(value = "/FilmeAPI")
 public class FilmeControler {
+	
 @Autowired
-FilmeReposiory FilmeRepository;
-
+FilmeService FilmeService;
+@Autowired
+AutorService AutorService;
 
 //Cadastro de Filmes / Atualiza caso passe a Id já cadastrada
 @PostMapping("/salvarfilme")
-public Filme salvarFilme(@RequestBody Filme Filme) {
-	return FilmeRepository.save(Filme);
+	
+public Autor Salvarfilme(@RequestBody   Autor autor ,Filme fil) {
+	FilmeService.salvarFilme(fil);
+	return AutorService.salvarAutor(autor); 
+	
 }
 
 //listagem de Filmes Geral e por Id ///////////////////////
 @GetMapping("/Listar")
 public List<Filme> listarfilmes(){
- return FilmeRepository.findAll();
+ return FilmeService.listarfilmes();
 }
-@GetMapping("/listarfilmesid/{id}")
+@GetMapping("/Listar/{id}")
 public Filme listarporid(@PathVariable(value = "id" ) long id){
- return FilmeRepository.findById(id);
+ return FilmeService.listarporid(id);
 }
 
 
 //Deleta Filmes por Id e Geral  ///////////////////////
 @PostMapping("/deletefilme/{id}")
 public Filme deletarfilme(@PathVariable(value = "id" ) long id){
-	return FilmeRepository.deleteById(id);
+	return FilmeService.deletarfilme(id);
 }
 //deleta todos os dados da tabela.
 //@GetMapping("/deletarall")    
