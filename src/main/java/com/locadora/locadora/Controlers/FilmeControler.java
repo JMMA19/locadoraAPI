@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.locadora.locadora.Service.AutorService;
 import com.locadora.locadora.Service.FilmeService;
-import com.locadora.locadora.models.Autor;
 import com.locadora.locadora.models.Filme;
 
 @RestController
@@ -28,10 +27,10 @@ AutorService AutorService;
 //Cadastro de Filmes / Atualiza caso passe a Id já cadastrada
 @PostMapping("/salvarfilme")
 	
-public Autor Salvarfilme(@RequestBody   Autor autor ,Filme fil) {
-	FilmeService.salvarFilme(fil);
-	return AutorService.salvarAutor(autor); 
+public Filme Salvarfilme(@RequestBody Filme filme) {
 	
+	return FilmeService.salvarFilme(filme); 
+
 }
 
 //listagem de Filmes Geral e por Id ///////////////////////

@@ -7,6 +7,5 @@ import com.locadora.locadora.models.Autor;
 
 public interface AutorRepository extends JpaRepository<Autor, Long> {
 	Autor findById(long id);
-
 	Autor deleteById(long id);
 }

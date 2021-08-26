@@ -1,6 +1,7 @@
 package com.locadora.locadora.models;
 
 import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,6 +24,7 @@ public class Autor implements Serializable {
 	private String NomeAltor;
 	private String Nascimento;
  
+	
  
  public Long getIdAutor() {
 	return IdAutor;

@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,11 +24,6 @@ public class Filme implements Serializable {
  @Id
  @GeneratedValue(strategy = GenerationType.AUTO)
  	private Long IdFilme;
- @ManyToOne
- 	private Autor autor;
- @ManyToOne
-	private Categoria categoria;
- 
  	private String NomeFilme;
  	private int AnoFilme;
  	
@@ -49,6 +45,9 @@ public String getNomeFilme() {
 public void setNomeFilme(String nomeFilme) {
 	NomeFilme = nomeFilme;
 }
-
+@OneToOne
+public Autor autor;
+@ManyToOne
+public Categoria categoria;
 
 }
